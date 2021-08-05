@@ -1,1 +1,11 @@
 My name is GeekSalon.
+
+<%= link_to 'トップページ', hello_index_path %>
+<%= link_to '一覧表示', tweets_path %>
+
+
+<p>写真などをリンクにする方法<p>
+<%= link_to hello_index_path do %>
+  <image src="../../../assets/image1.png" class="logo-image">
+<% end %>
+
