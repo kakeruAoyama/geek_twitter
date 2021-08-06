@@ -2,7 +2,14 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tweets = Tweet.all
+    if params[:search] == nil
+      @tweets= Tweet.all
+    elsif params[:search] == ''
+      @tweets= Tweet.all
+    else
+      #部分検索
+      @tweets = Tweet.where("body LIKE ? ",'%' + params[:search] + '%')
+    end
   end
 
   def new

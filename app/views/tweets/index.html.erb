@@ -1,6 +1,13 @@
 <%= stylesheet_link_tag 'index', :media => "all" %>
 
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
+<h3>投稿を検索</h3>
+  <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索する'  %>
+<% end %>
+
 <div class="tweets-container">
 <h3>Tweet一覧</h3>
   <% @tweets.each do |t| %>
