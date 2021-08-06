@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'index', :media => "all" %>
 
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <div class="tweets-container">
 <h3>Tweet一覧</h3>
   <% @tweets.each do |t| %>
