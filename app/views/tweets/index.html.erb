@@ -8,6 +8,9 @@
     <%= submit_tag '検索する'  %>
 <% end %>
 
+<br>
+<%= page_entries_info @tweets %>
+
 <div class="tweets-container">
 <h3>Tweet一覧</h3>
   <% @tweets.each do |t| %>
@@ -27,3 +30,5 @@
     </div>
   <% end %>
 </div>
+
+<%= paginate @tweets %>

@@ -3,12 +3,11 @@ class TweetsController < ApplicationController
 
   def index
     if params[:search] == nil
-      @tweets= Tweet.all
+        @tweets= Tweet.all.page(params[:page]).per(3)
     elsif params[:search] == ''
-      @tweets= Tweet.all
+        @tweets= Tweet.all.page(params[:page]).per(3)
     else
-      #部分検索
-      @tweets = Tweet.where("body LIKE ? ",'%' + params[:search] + '%')
+        @tweets = Tweet.where("body LIKE ? ",'%' + params[:search] + '%').page(params[:page]).per(3)
     end
   end
 
